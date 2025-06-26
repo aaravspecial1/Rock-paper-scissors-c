@@ -2,33 +2,52 @@
 #include <stdlib.h>
 #include <time.h>
 
-int main()
-{
-    // Seed the random number generator
+int main(){
     srand(time(NULL));
 
     // Generate a random number between 0 and 99
-    int randomNumber = rand() % 100 + 1;
-    int no_of_guesses = 0;
-    int guessed;
-    // printf("Random number: %d\n", randomNumber);
-
-    do
+    int computer = rand() % 3;
+    int player;
+   /* 0-->snake 
+    1-->water 
+    2-->gun*/
+    printf("Choose 0 for snake 1 for water and 2 for gun\n");
+    scanf("%d", &player);
+    printf("%d\n", computer);
+    if (player==0 && computer==1)
     {
-        printf("Guess the number\n");
-        scanf("%d", &guessed);
-        if (guessed<randomNumber)
-        {
-            printf("lower number please\n");
-        
-        }
-        else if(randomNumber<guessed)
-        {
-        printf("higher number please\n");}
-            no_of_guesses++;
-    } while (guessed != randomNumber);
+        printf("congratulations You won\n");
+    }
+    
+    else if (player == computer)
+    {
+        printf("Draw\n");
+    
+    } 
 
-    printf("You guessed the number in %d guesses", no_of_guesses);
+    else if (player == 1 && computer == 0)
+    {
+        printf("You lose try again\n");
+    }
+    else if (player == 1 && computer==2)
+    {
+        printf("You lose try again\n");
+    }
+    else if (player == 2 && computer == 1)
+    {
+        printf("You won \n");
+    }
+    
+    else if (player == 0 && computer==2)
+    {
+        printf("You lose try again\n");
+    }
+    else if (player == 2 && computer==0)
+    {
+        printf("You won\n");
+    }
+    
+    
 
     return 0;
 }
